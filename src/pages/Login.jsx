@@ -1,10 +1,14 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import LoginForm from "@/forms/loginform/LoginForm";
+import { useLogin } from "@/hooks/useLogin";
 
 export default function Login() {
+  const { mutate: login } = useLogin();
+
   const handleLogin = async (data) => {
     console.log("Login data:", data);
     // Perform login logic here
+    login({ email: data.email, password: data.password });
   };
   return (
     <div className="flex justify-center items-center h-[90vh]">
