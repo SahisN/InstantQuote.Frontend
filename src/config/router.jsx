@@ -1,5 +1,6 @@
 import Dashboard from "@/pages/Dashboard";
 import Login from "@/pages/Login";
+import Signup from "@/pages/Signup";
 
 export const routerConfig = [
   {
@@ -11,4 +12,6 @@ export const routerConfig = [
     path: "/login",
     element: <Login />,
   },
+
+  { path: "/signup", element: <Signup /> },
 ];

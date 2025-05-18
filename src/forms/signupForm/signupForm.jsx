@@ -1,7 +1,6 @@
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { looseLoginFormSchema } from "./looseLoginFormSchema";
-
+import { looseSignupFormSchema } from "./looseSignupFormSchema";
+import { useForm } from "react-hook-form";
 import {
   Form,
   FormField,
@@ -13,12 +12,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-export default function LoginForm({ onSubmit }) {
+export default function SignupForm({ onSubmit }) {
   const form = useForm({
-    resolver: zodResolver(looseLoginFormSchema),
+    resolver: zodResolver(looseSignupFormSchema),
     defaultValues: {
+      username: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
@@ -26,17 +27,17 @@ export default function LoginForm({ onSubmit }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 py-[20px]">
         <div className="space-y-[30px]">
           <FormField
             control={form.control}
-            name="email"
+            name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="you@example.com"
+                    placeholder="John Doe"
                     {...field}
                     className="w-[300px]"
                   />
@@ -45,6 +46,25 @@ export default function LoginForm({ onSubmit }) {
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="you@gmail.com"
+                    {...field}
+                    className="w-[300px]"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
           <FormField
             control={form.control}
             name="password"
@@ -63,10 +83,28 @@ export default function LoginForm({ onSubmit }) {
               </FormItem>
             )}
           />
-        </div>
 
+          <FormField
+            control={form.control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Confirm Password</FormLabel>
+                <FormControl>
+                  <Input
+                    className="w-full"
+                    type="password"
+                    placeholder="********"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <Button className="w-full" type="submit">
-          Login
+          Sign Up
         </Button>
       </form>
     </Form>
