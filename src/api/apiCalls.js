@@ -1,6 +1,4 @@
-import { data } from "react-router-dom";
 import { request } from "./base";
-import { use } from "react";
 
 export async function login({ email, password }) {
   const response = await request({
@@ -38,6 +36,16 @@ export async function getUser() {
   const response = await request({
     url: "/user",
     method: "GET",
+    withCredentials: true,
+  });
+
+  return response;
+}
+
+export async function Logout() {
+  const response = await request({
+    url: "/logout",
+    method: "POST",
     withCredentials: true,
   });
 
