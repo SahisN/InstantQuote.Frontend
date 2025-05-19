@@ -13,7 +13,7 @@ export function useUser() {
   });
 
   if (query.isError) {
-    toast.error(query.error.message);
+    toast.error(query.error.response.data.message);
     navigate("/login");
   }
 
