@@ -1,3 +1,4 @@
+import PrivateRoute from "@/auth/PrivateRoute";
 import Dashboard from "@/pages/Dashboard";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
@@ -5,7 +6,13 @@ import Signup from "@/pages/Signup";
 export const routerConfig = [
   {
     path: "/",
-    element: <Dashboard />,
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+    ],
   },
 
   {

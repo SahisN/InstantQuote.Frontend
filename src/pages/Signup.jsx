@@ -1,9 +1,18 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import SignupForm from "@/forms/signupForm/SignupForm";
+import { useSignup } from "@/hooks/useSignup";
 
 export default function Signup() {
+  const { mutate: signup } = useSignup();
+
   const handleSignup = async (data) => {
     console.log("Signup data:", data);
+    // Perform signup logic here
+    signup({
+      username: data.name,
+      email: data.email,
+      password: data.password,
+    });
   };
   return (
     <div className="flex justify-center items-center h-[90vh]">
