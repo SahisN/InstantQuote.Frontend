@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import LoginForm from "@/forms/loginform/LoginForm";
-import { useLogin } from "@/hooks/useLogin";
+import { useLogin } from "@/auth/useLogin";
 
 export default function Login() {
   const { mutate: login } = useLogin();

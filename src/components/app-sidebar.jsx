@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { useLogout } from "@/hooks/useLogout";
+import { useLogout } from "@/auth/useLogout";
 
 export function AppSidebar() {
   const { mutate: logout } = useLogout();
