@@ -1,4 +1,4 @@
-import { Loader2, RefreshCcw } from "lucide-react";
+import { RefreshCcw } from "lucide-react";
 export default function Loader({ loadingMessage }) {
   return (
     <div>

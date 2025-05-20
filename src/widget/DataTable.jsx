@@ -24,7 +24,9 @@ export default function DataTable({ tableHeaders, quoteData }) {
           {quoteData.map((item, index) => (
             <TableRow key={index}>
               {Object.values(item).map((value, index) => (
-                <TableCell className="w-1/5 px-4 text-left">{value}</TableCell>
+                <TableCell key={index} className="w-1/5 px-4 text-left">
+                  {value}
+                </TableCell>
               ))}
             </TableRow>
           ))}
