@@ -31,7 +31,7 @@ export default function QuoteForm({ onSubmit }) {
         <div className="space-y-[30px]">
           <FormField
             control={form.control}
-            name="insuredName"
+            name="nameInsured"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Insured Name</FormLabel>
@@ -64,7 +64,7 @@ export default function QuoteForm({ onSubmit }) {
               <FormItem>
                 <FormLabel>Class Code</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-[300px]" />
+                  <Input {...field} className="w-[300px]" type="number" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -78,7 +78,7 @@ export default function QuoteForm({ onSubmit }) {
               <FormItem>
                 <FormLabel>Exposure Amount</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-[300px]" />
+                  <Input {...field} className="w-[300px]" type="number" />
                 </FormControl>
                 <FormMessage />
               </FormItem>

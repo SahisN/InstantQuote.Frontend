@@ -1,4 +1,4 @@
-import { Home, History, LogOutIcon } from "lucide-react";
+import { Home, History, LogOutIcon, SearchIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -11,26 +11,37 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useLogout } from "@/auth/useLogout";
+import { useNavigate } from "react-router-dom";
 
 export function AppSidebar() {
   const { mutate: logout } = useLogout();
+  const navigate = useNavigate();
 
   // Menu items.
   const items = [
     {
-      title: "Home",
-      url: "#",
+      title: "Quote Form",
       icon: Home,
+      onClick: () => {
+        navigate("/");
+      },
     },
+
+    {
+      title: "Class Code Lookup",
+      icon: SearchIcon,
+      onClick: () => {
+        navigate("/lookup");
+      },
+    },
+
     {
       title: "Quote History",
-      url: "#",
       icon: History,
     },
 
     {
       title: "Logout",
-
       icon: LogOutIcon,
       onClick: () => {
         logout();
@@ -41,7 +52,9 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Instant Quote</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-xl mb-[40px]">
+            Instant Quote
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -49,7 +62,7 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <span
                       onClick={item.onClick}
-                      className="flex items-center gap-2 w-full text-left cursor-pointer"
+                      className="flex items-center gap-3 w-full text-left cursor-pointer"
                     >
                       <item.icon />
                       <span>{item.title}</span>

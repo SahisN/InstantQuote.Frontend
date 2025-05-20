@@ -1,4 +1,5 @@
 import PrivateRoute from "@/auth/PrivateRoute";
+import ClassCodeLookup from "@/pages/ClassCodeLookup";
 import Dashboard from "@/pages/Dashboard";
 import Layout from "@/pages/Layout";
 import Login from "@/pages/Login";
@@ -19,6 +20,15 @@ export const routerConfig = [
     element: (
       <Layout>
         <Dashboard />
+      </Layout>
+    ),
+  },
+
+  {
+    path: "/lookup",
+    element: (
+      <Layout>
+        <ClassCodeLookup />
       </Layout>
     ),
   },

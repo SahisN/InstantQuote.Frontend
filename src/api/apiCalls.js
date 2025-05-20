@@ -51,3 +51,24 @@ export async function Logout() {
 
   return response;
 }
+
+export async function Quote({
+  nameInsured,
+  companyAddress,
+  classCode,
+  exposureAmount,
+}) {
+  const response = await request({
+    url: "/quote",
+    method: "POST",
+    data: {
+      nameInsured: nameInsured,
+      companyAddress: companyAddress,
+      classCode: classCode,
+      exposureAmount: exposureAmount,
+    },
+    withCredentials: true,
+  });
+
+  return response;
+}
