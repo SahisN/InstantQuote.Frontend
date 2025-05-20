@@ -72,3 +72,13 @@ export async function Quote({
 
   return response;
 }
+
+export async function quoteHistory() {
+  const response = await request({
+    url: "/quotes",
+    method: "GET",
+    withCredentials: true,
+  });
+
+  return response;
+}

@@ -38,6 +38,9 @@ export function AppSidebar() {
     {
       title: "Quote History",
       icon: History,
+      onClick: () => {
+        navigate("/history");
+      },
     },
 
     {

@@ -1,1 +1,4 @@
-export const QueryKeys = {};
+export const QueryKeys = {
+  USER: "user",
+  QUOTE_HISTORY: "quoteHistory",
+};
