@@ -1,26 +1,38 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import useQuoteHistory from "@/hooks/useQuoteHistory";
+import DataTable from "@/widget/DataTable";
 import Loader from "@/widget/Loader";
 import { RefreshCcw } from "lucide-react";
 
+const tableHeaders = [
+  "Insured Name",
+  "Company's Address",
+  "Class Code",
+  "Exposure Amount $",
+  "Quote $",
+];
+
 export default function QuoteHistory() {
+  const { data: quoteHistoryData, isLoading } = useQuoteHistory();
+
   return (
     <div className="flex justify-center items-center w-screen h-screen">
-      <div className="h-full w-full text-center">
+      <div className="w-full h-full text-center">
         <h1 className="text-3xl font-bold mb-[10px]">
           Quote History{" "}
           <Button>
             <RefreshCcw />
           </Button>
         </h1>
-        {/* <Loader loadingMessage="Fetching Data..." /> */}
-        <div className="space-y-4 py-[20px]">
-          <Card className="w-full max-w-2xl mx-auto">
-            <CardContent>
-              <p>Hello world</p>
-            </CardContent>
-          </Card>
-        </div>
+        {isLoading && <Loader />}
+        {!isLoading && (
+          <div className="py-[30px]">
+            <DataTable
+              tableHeaders={tableHeaders}
+              quoteData={quoteHistoryData}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

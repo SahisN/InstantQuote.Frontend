@@ -1,8 +1,10 @@
 import { Quote } from "@/api/apiCalls";
-import { useMutation } from "@tanstack/react-query";
+import { QueryKeys } from "@/config/queryKeys";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 export function useQuote() {
+  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ nameInsured, companyAddress, classCode, exposureAmount }) =>
       Quote({
@@ -13,6 +15,7 @@ export function useQuote() {
       }),
     onSuccess: (data) => {
       toast.success("Quote submitted successfully");
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.QUOTE_HISTORY] });
     },
 
     onError: (error) => {

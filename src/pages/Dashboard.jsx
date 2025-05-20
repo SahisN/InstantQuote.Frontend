@@ -17,9 +17,9 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
-      <div className="w-full max-w-2xl">
-        <h1 className="text-2xl font-bold mb-[10px] text-center">
+    <div className="flex justify-center items-center w-screen h-screen">
+      <div className="w-full max-w-xl h-full text-center">
+        <h1 className="text-3xl font-bold mb-[10px]">
           Get Your Insurance Quote
         </h1>
         <p className="px-[20px] text-xl text-center">
@@ -27,9 +27,9 @@ export default function Dashboard() {
           address, class code, and exposure amout. We will use this information
           to prepare your quote
         </p>
-      </div>
-      <div>
-        <QuoteForm onSubmit={handleQuoteSubmit} />
+        <div className="flex justify-center">
+          <QuoteForm onSubmit={handleQuoteSubmit} />
+        </div>
       </div>
     </div>
   );
