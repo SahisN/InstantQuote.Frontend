@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import SignupForm from "@/forms/signupForm/SignupForm";
+
 import { useSignup } from "@/auth/useSignup";
+import SignupForm from "@/forms/signupForm/SingUpForm";
 
 export default function Signup() {
   const { mutate: signup } = useSignup();
@@ -20,7 +21,7 @@ export default function Signup() {
         <Card className="w-full h-full max-w-[700px] max-h-[900px]">
           <CardContent className="px-[50px]">
             <h6 className="text-3xl text-center font-bold">Signup Portal</h6>
-            <SignupForm onSubmit={handleSignup} />
+            <SignupForm />
           </CardContent>
           <CardFooter className="flex justify-center">
             <h1 className="text-center">
