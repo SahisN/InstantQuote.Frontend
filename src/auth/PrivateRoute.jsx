@@ -3,7 +3,8 @@ import Loader from "@/widget/Loader";
 import { Outlet, Navigate } from "react-router-dom";
 
 const PrivateRoute = () => {
-  const { user, isLoading } = useUser();
+  const { data: user, isLoading } = useUser();
+  console.log(user);
 
   if (isLoading) {
     return <Loader loadingMessage="Loading User Information...." />;
