@@ -7,6 +7,7 @@ export const axios = axiosModule.create({
 });
 
 export async function request(config) {
+  console.log(baseUrl);
   const headers = config.headers || {};
 
   if (config.accessToken) {
