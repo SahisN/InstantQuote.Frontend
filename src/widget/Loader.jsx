@@ -5,7 +5,7 @@ export default function Loader({ loadingMessage }) {
       <div className="flex justify-center items-center py-[70px]">
         <RefreshCcw size={100} className="animate-spin text-gray-500" />
       </div>
-      <h1 className="text-2xl font-bold">{loadingMessage}</h1>
+      <h1 className="text-2xl font-bold text-center">{loadingMessage}</h1>
     </div>
   );
 }
