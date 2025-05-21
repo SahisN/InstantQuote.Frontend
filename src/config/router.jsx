@@ -9,48 +9,45 @@ import Signup from "@/pages/Signup";
 
 export const routerConfig = [
   {
-    // path: "/",
-    // element: <PrivateRoute />,
-    // children: [
-    //   {
-    //     path: "/",
-    //     element: <Dashboard />,
-    //   },
-    // ],
-
     path: "/",
-    element: (
-      <Layout>
-        <Dashboard />
-      </Layout>
-    ),
-  },
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <Layout>
+            <Dashboard />
+          </Layout>
+        ),
+      },
 
-  {
-    path: "/lookup",
-    element: (
-      <Layout>
-        <ClassCodeLookup />
-      </Layout>
-    ),
-  },
+      {
+        path: "/lookup",
+        element: (
+          <Layout>
+            <ClassCodeLookup />
+          </Layout>
+        ),
+      },
 
-  {
-    path: "/history",
-    element: (
-      <Layout>
-        <QuoteHistory />
-      </Layout>
-    ),
-  },
+      {
+        path: "/history",
+        element: (
+          <Layout>
+            <QuoteHistory />
+          </Layout>
+        ),
+      },
 
-  {
-    path: "/quote",
-    element: (
-      <Layout>
-        <ShowQuote />
-      </Layout>
-    ),
+      {
+        path: "/quote",
+        element: (
+          <Layout>
+            <ShowQuote />
+          </Layout>
+        ),
+      },
+    ],
   },
 
   {

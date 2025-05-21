@@ -1,4 +1,4 @@
-import { Home, History, LogOutIcon, SearchIcon } from "lucide-react";
+import { Highlighter, History, LogOutIcon, SearchIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -21,7 +21,7 @@ export function AppSidebar() {
   const items = [
     {
       title: "Quote Form",
-      icon: Home,
+      icon: Highlighter,
       onClick: () => {
         navigate("/");
       },
