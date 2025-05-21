@@ -3,6 +3,7 @@ import useQuoteHistory from "@/hooks/useQuoteHistory";
 import DataTable from "@/widget/DataTable";
 import Loader from "@/widget/Loader";
 import { RefreshCcw } from "lucide-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const tableHeaders = [
   "Insured Name",
@@ -18,12 +19,7 @@ export default function QuoteHistory() {
   return (
     <div className="flex justify-center items-center w-screen h-screen">
       <div className="w-full h-full text-center">
-        <h1 className="text-3xl font-bold mb-[10px]">
-          Quote History{" "}
-          <Button>
-            <RefreshCcw />
-          </Button>
-        </h1>
+        <h1 className="text-3xl font-bold mb-[10px]">Quote History </h1>
         {isLoading && <Loader loadingMessage="Fetching Data..." />}
         {!isLoading && (
           <div className="py-[30px]">
