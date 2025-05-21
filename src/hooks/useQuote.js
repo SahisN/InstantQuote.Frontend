@@ -2,8 +2,10 @@ import { Quote } from "@/api/apiCalls";
 import { QueryKeys } from "@/config/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export function useQuote() {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ nameInsured, companyAddress, classCode, exposureAmount }) =>
@@ -16,6 +18,14 @@ export function useQuote() {
     onSuccess: (data) => {
       toast.success("Quote submitted successfully");
       queryClient.invalidateQueries({ queryKey: [QueryKeys.QUOTE_HISTORY] });
+      navigate("/quote", {
+        state: {
+          nameInsured: data.nameInsured,
+          companyAddress: data.companyAddress,
+          classCode: data.classCode,
+          exposureAmount: data.exposureAmount,
+        },
+      });
     },
 
     onError: (error) => {

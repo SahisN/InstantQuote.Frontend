@@ -2,14 +2,15 @@ import { Button } from "@/components/ui/button";
 import { HistoryIcon, LucideArrowBigLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import data from "@/static/gl_code";
+import { useLocation } from "react-router-dom";
 
-export default function ShowQuote({
-  nameInsured,
-  companyAddress,
-  classCode,
-  exposureAmount,
-}) {
+export default function ShowQuote({}) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { nameInsured, companyAddress, classCode, ExposureAmount } =
+    location.state || {};
+
   const codeDescription = (code) => {
     const item = data.find((obj) => obj.code === code);
     return item ? item.description : "No Description";
