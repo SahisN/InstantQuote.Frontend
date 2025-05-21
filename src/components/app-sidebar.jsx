@@ -55,8 +55,8 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xl mb-[40px]">
-            Instant Quote
+          <SidebarGroupLabel className="text-xl mb-[40px] mt-[15px]">
+            <img src="quota.svg" className="w-10 h-10"></img>Instant Quote
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

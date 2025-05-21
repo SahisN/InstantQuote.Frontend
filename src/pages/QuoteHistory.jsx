@@ -8,8 +8,8 @@ const tableHeaders = [
   "Insured Name",
   "Company's Address",
   "Class Code",
-  "Exposure Amount $",
-  "Quote $",
+  "Exposure Amount",
+  "Calculate Premium",
 ];
 
 export default function QuoteHistory() {

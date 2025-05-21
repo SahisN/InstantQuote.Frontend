@@ -8,8 +8,10 @@ export default function ShowQuote({}) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { nameInsured, companyAddress, classCode, ExposureAmount } =
+  const { nameInsured, companyAddress, classCode, exposureAmount, quote } =
     location.state || {};
+
+  console.log(nameInsured, companyAddress, classCode, exposureAmount);
 
   const codeDescription = (code) => {
     const item = data.find((obj) => obj.code === code);
@@ -25,29 +27,28 @@ export default function ShowQuote({}) {
             your quote details:
           </p>
           {/* Replace the following with dynamic data as needed */}
-          <ul className="text-middle text-gray-600 mb-4 text-lg space-y-[20px]">
-            <li>
-              <strong>Insured Name:</strong> John Doe
-            </li>
-            <li>
-              <strong>Comapny Address :</strong> johndoe@example.com
-            </li>
-            <li>
-              <strong>ClassCode:</strong> {"a ,"}
-              {codeDescription(classCode)}
-            </li>
-            <li>
-              <strong>Exposure Amount: </strong> 20 years
-            </li>
-            <li>
-              <strong>Estimated Monthly Premium:</strong> $45.00
-            </li>
-          </ul>
-          <p className="text-md text-gray-500">
-            If you have any questions or would like to make changes, please
-            contact our support team.
-          </p>
+          <div className="flex justify-center mr-30">
+            <ul className="text-left text-gray-600 mb-4 text-lg space-y-[20px]">
+              <li>
+                <strong>Insured Name: </strong> {nameInsured}
+              </li>
+              <li>
+                <strong>Comapny Address: </strong> {companyAddress}
+              </li>
+              <li>
+                <strong>ClassCode: </strong>{" "}
+                {classCode + ", " + codeDescription(classCode)}
+              </li>
+              <li>
+                <strong>Exposure Amount: </strong> {exposureAmount}
+              </li>
+              <li>
+                <strong>Estimated Monthly Premium:</strong> ${quote}
+              </li>
+            </ul>
+          </div>
         </div>
+
         <div className="flex justify-center space-x-8 py-[30px]">
           <Button className="w-[120px]" onClick={() => navigate("/")}>
             Go Back <LucideArrowBigLeft />

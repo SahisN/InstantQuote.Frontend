@@ -18,18 +18,21 @@ export function useQuote() {
     onSuccess: (data) => {
       toast.success("Quote submitted successfully");
       queryClient.invalidateQueries({ queryKey: [QueryKeys.QUOTE_HISTORY] });
+      console.log(data);
       navigate("/quote", {
         state: {
           nameInsured: data.nameInsured,
           companyAddress: data.companyAddress,
           classCode: data.classCode,
           exposureAmount: data.exposureAmount,
+          quote: data.calculatePremium,
         },
       });
     },
 
     onError: (error) => {
       toast.error(`Quote submission failed: ${error.response.data.message}`);
+      navigate("/login");
     },
   });
 }
