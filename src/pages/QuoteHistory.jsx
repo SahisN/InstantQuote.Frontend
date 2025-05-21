@@ -24,7 +24,7 @@ export default function QuoteHistory() {
             <RefreshCcw />
           </Button>
         </h1>
-        {isLoading && <Loader />}
+        {isLoading && <Loader loadingMessage="Fetching Data..." />}
         {!isLoading && (
           <div className="py-[30px]">
             <DataTable

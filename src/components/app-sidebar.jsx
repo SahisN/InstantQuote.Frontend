@@ -65,9 +65,9 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <span
                       onClick={item.onClick}
-                      className="flex items-center gap-3 w-full text-left cursor-pointer"
+                      className="flex items-center gap-3 w-full text-left cursor-pointer text-2"
                     >
-                      <item.icon />
+                      <item.icon size={60} />
                       <span>{item.title}</span>
                     </span>
                   </SidebarMenuButton>

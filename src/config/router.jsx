@@ -4,6 +4,7 @@ import Dashboard from "@/pages/Dashboard";
 import Layout from "@/pages/Layout";
 import Login from "@/pages/Login";
 import QuoteHistory from "@/pages/QuoteHistory";
+import ShowQuote from "@/pages/ShowQuote";
 import Signup from "@/pages/Signup";
 
 export const routerConfig = [
@@ -39,6 +40,15 @@ export const routerConfig = [
     element: (
       <Layout>
         <QuoteHistory />
+      </Layout>
+    ),
+  },
+
+  {
+    path: "/quote",
+    element: (
+      <Layout>
+        <ShowQuote />
       </Layout>
     ),
   },

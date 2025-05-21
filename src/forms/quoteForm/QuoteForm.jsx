@@ -16,7 +16,7 @@ export default function QuoteForm({ onSubmit }) {
   const form = useForm({
     resolver: zodResolver(looseQuoteFormSchema),
     defaultValues: {
-      insuredName: "",
+      nameInsured: "",
       companyAddress: "",
       classCode: "",
       exposureAmount: "",
@@ -27,8 +27,8 @@ export default function QuoteForm({ onSubmit }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit} className="space-y-4 py-[20px]">
-        <div className="space-y-[30px]">
+      <form onSubmit={handleSubmit} className="space-y-6 py-[20px]">
+        <div className="space-y-[40px]">
           <FormField
             control={form.control}
             name="nameInsured"

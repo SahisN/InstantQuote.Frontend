@@ -1,4 +1,5 @@
 import { useUser } from "@/auth/useUser";
+import Loader from "@/widget/Loader";
 import { Outlet, Navigate } from "react-router-dom";
 
 export default function PrivateRoute() {
@@ -7,7 +8,7 @@ export default function PrivateRoute() {
   console.log("Is loading:", isLoading);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader loadingMessage="Loading User Information...." />;
   }
 
   return user ? <Outlet /> : <Navigate to="/login" replace />;
