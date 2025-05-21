@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { useSignup } from "@/auth/useSignup";
-import SignupForm from "@/forms/signupForm/signupForm";
+import SignupForm from "@/forms/signupForm/SignupForm";
 
 export default function Signup() {
   const { mutate: signup } = useSignup();
