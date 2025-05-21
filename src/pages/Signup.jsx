@@ -6,8 +6,6 @@ export default function Signup() {
   const { mutate: signup } = useSignup();
 
   const handleSignup = async (data) => {
-    console.log("Signup data:", data);
-    // Perform signup logic here
     signup({
       username: data.name,
       email: data.email,
