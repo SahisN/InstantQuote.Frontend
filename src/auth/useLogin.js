@@ -7,7 +7,7 @@ export function useLogin() {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: ({ email, password }) => login({ email, password }),
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("Login successful");
       navigate("/");
     },

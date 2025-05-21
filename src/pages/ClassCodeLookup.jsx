@@ -23,8 +23,8 @@ export default function ClassCodeLookup() {
 
     const filteredData = data.filter((item) =>
       Object.values(item).some((value) =>
-        value.toLowerCase().includes(search.toLowerCase())
-      )
+        value.toLowerCase().includes(search.toLowerCase()),
+      ),
     );
 
     console.log(filteredData);
