@@ -7,7 +7,7 @@ export default function Signup() {
 
   const handleSignup = async (data) => {
     signup({
-      username: data.name,
+      username: data.username,
       email: data.email,
       password: data.password,
     });
