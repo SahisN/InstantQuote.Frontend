@@ -1,9 +1,14 @@
-import { Button } from "@/components/ui/button";
 import useQuoteHistory from "@/hooks/useQuoteHistory";
-import DataTable from "@/widget/DataTable";
 import Loader from "@/widget/Loader";
-import { RefreshCcw } from "lucide-react";
-import { useQueryClient } from "@tanstack/react-query";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const tableHeaders = [
   "Insured Name",
@@ -19,14 +24,46 @@ export default function QuoteHistory() {
   return (
     <div className="flex justify-center items-center w-screen h-screen">
       <div className="w-full h-full text-center">
-        <h1 className="text-3xl font-bold mb-[10px]">Quote History </h1>
+        <h1 className="text-3xl font-bold mb-[10px]">Your Quote History </h1>
         {isLoading && <Loader loadingMessage="Fetching Data..." />}
         {!isLoading && (
-          <div className="py-[30px]">
-            <DataTable
-              tableHeaders={tableHeaders}
-              quoteData={quoteHistoryData}
-            />
+          <div className="container mx-auto py-10">
+            <Card>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Name Insured</TableHead>
+                      <TableHead>Company Address</TableHead>
+                      <TableHead>Class Code</TableHead>
+                      <TableHead>Exposure Amount</TableHead>
+                      <TableHead>Premium</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {quoteHistoryData.map((quoteData, index) => (
+                      <TableRow key={index}>
+                        <TableCell className="text-left">
+                          {quoteData.nameInsured}
+                        </TableCell>
+                        <TableCell className="text-left">
+                          {quoteData.companyAddress}
+                        </TableCell>
+                        <TableCell className="text-left">
+                          {quoteData.classCode}
+                        </TableCell>
+                        <TableCell className="text-left">
+                          {quoteData.exposureAmount}
+                        </TableCell>
+                        <TableCell className="text-left">
+                          {quoteData.quote}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
           </div>
         )}
       </div>

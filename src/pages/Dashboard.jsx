@@ -19,7 +19,7 @@ export default function Dashboard() {
       nameInsured: data.nameInsured,
       companyAddress: data.companyAddress,
       classCode: data.classCode,
-      exposureAmount: data.exposureAmount.toLocaleString(),
+      exposureAmount: data.exposureAmount,
     });
   };
 
