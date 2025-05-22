@@ -2,7 +2,6 @@ import { ArrowRight, FileText, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/widget/Header";
 import { Link } from "react-router-dom";
-import { Footer } from "@/widget/Footer";
 
 export default function LandingPage() {
   return (

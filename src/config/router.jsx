@@ -10,11 +10,11 @@ import Signup from "@/pages/Signup";
 
 export const routerConfig = [
   {
-    path: "/",
+    path: "/app",
     element: <PrivateRoute />,
     children: [
       {
-        path: "/",
+        path: "dashboard",
         element: (
           <Layout>
             <Dashboard />
@@ -23,7 +23,7 @@ export const routerConfig = [
       },
 
       {
-        path: "/lookup",
+        path: "lookup",
         element: (
           <Layout>
             <ClassCodeLookup />
@@ -32,7 +32,7 @@ export const routerConfig = [
       },
 
       {
-        path: "/history",
+        path: "history",
         element: (
           <Layout>
             <QuoteHistory />
@@ -41,7 +41,7 @@ export const routerConfig = [
       },
 
       {
-        path: "/quote",
+        path: "quote",
         element: (
           <Layout>
             <ShowQuote />
@@ -52,7 +52,7 @@ export const routerConfig = [
   },
 
   {
-    path: "/landing",
+    path: "/",
     element: <LandingPage />,
   },
 

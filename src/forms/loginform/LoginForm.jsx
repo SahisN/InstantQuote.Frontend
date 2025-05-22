@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
-export default function LoginForm({ onSubmit }) {
+export default function LoginForm({ onSubmit, isLoading }) {
   const form = useForm({
     resolver: zodResolver(looseLoginFormSchema),
     defaultValues: {
@@ -37,6 +38,7 @@ export default function LoginForm({ onSubmit }) {
                 <FormControl>
                   <Input
                     placeholder="you@example.com"
+                    disabled={isLoading}
                     {...field}
                     className="w-[300px]"
                   />
@@ -54,6 +56,7 @@ export default function LoginForm({ onSubmit }) {
                 <FormControl>
                   <Input
                     className="w-full"
+                    disabled={isLoading}
                     type="password"
                     placeholder="********"
                     {...field}
@@ -65,8 +68,15 @@ export default function LoginForm({ onSubmit }) {
           />
         </div>
 
-        <Button className="w-full" type="submit">
-          Login
+        <Button disabled={isLoading} className="w-full" type="submit">
+          {isLoading ? (
+            <>
+              Signing In...
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            </>
+          ) : (
+            "Sign In"
+          )}
         </Button>
       </form>
     </Form>

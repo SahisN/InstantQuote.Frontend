@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
-export default function SignupForm({ onSubmit }) {
+export default function SignupForm({ onSubmit, isLoading }) {
   const form = useForm({
     resolver: zodResolver(looseSignupFormSchema),
     defaultValues: {
@@ -40,6 +41,7 @@ export default function SignupForm({ onSubmit }) {
                     placeholder="John Doe"
                     {...field}
                     className="w-[300px]"
+                    disabled={isLoading}
                   />
                 </FormControl>
                 <FormMessage />
@@ -58,6 +60,7 @@ export default function SignupForm({ onSubmit }) {
                     placeholder="you@gmail.com"
                     {...field}
                     className="w-[300px]"
+                    disabled={isLoading}
                   />
                 </FormControl>
                 <FormMessage />
@@ -74,6 +77,7 @@ export default function SignupForm({ onSubmit }) {
                 <FormControl>
                   <Input
                     className="w-full"
+                    disabled={isLoading}
                     type="password"
                     placeholder="********"
                     {...field}
@@ -93,6 +97,7 @@ export default function SignupForm({ onSubmit }) {
                 <FormControl>
                   <Input
                     className="w-full"
+                    disabled={isLoading}
                     type="password"
                     placeholder="********"
                     {...field}
@@ -103,8 +108,15 @@ export default function SignupForm({ onSubmit }) {
             )}
           />
         </div>
-        <Button className="w-full" type="submit">
-          Sign Up
+        <Button disabled={isLoading} className="w-full" type="submit">
+          {isLoading ? (
+            <>
+              Signing Up...
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            </>
+          ) : (
+            "Sign Up"
+          )}
         </Button>
       </form>
     </Form>

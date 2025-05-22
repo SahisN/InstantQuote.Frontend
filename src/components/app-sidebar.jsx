@@ -23,7 +23,7 @@ export function AppSidebar() {
       title: "Quote Form",
       icon: Highlighter,
       onClick: () => {
-        navigate("/");
+        navigate("/app/dashboard");
       },
     },
 
@@ -31,7 +31,7 @@ export function AppSidebar() {
       title: "Class Code Lookup",
       icon: SearchIcon,
       onClick: () => {
-        navigate("/lookup");
+        navigate("/app/lookup");
       },
     },
 
@@ -39,7 +39,7 @@ export function AppSidebar() {
       title: "Quote History",
       icon: History,
       onClick: () => {
-        navigate("/history");
+        navigate("/app/history");
       },
     },
 
@@ -56,7 +56,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="text-xl mb-[40px] mt-[15px]">
-            <img src="quota.svg" className="w-10 h-10"></img>Instant Quote
+            <img src="/quota.svg" className="w-10 h-10"></img>Instant Quote
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

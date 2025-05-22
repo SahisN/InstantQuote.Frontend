@@ -11,7 +11,7 @@ import SignupForm from "@/forms/signupForm/SignupForm";
 import { Header } from "@/widget/Header";
 
 export default function Signup() {
-  const { mutate: signup } = useSignup();
+  const { mutate: signup, isPending } = useSignup();
 
   const handleSignup = async (data) => {
     signup({
@@ -34,7 +34,7 @@ export default function Signup() {
             </CardDescription>
           </CardHeader>
           <CardContent className="px-[50px]">
-            <SignupForm onSubmit={handleSignup} />
+            <SignupForm onSubmit={handleSignup} isLoading={isPending} />
           </CardContent>
           <CardFooter className="flex justify-center">
             <h1 className="text-center">

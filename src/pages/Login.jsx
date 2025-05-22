@@ -9,9 +9,10 @@ import {
 import LoginForm from "@/forms/loginform/LoginForm";
 import { useLogin } from "@/auth/useLogin";
 import { Header } from "@/widget/Header";
+import { useState } from "react";
 
 export default function Login() {
-  const { mutate: login } = useLogin();
+  const { mutate: login, isPending } = useLogin({});
 
   const handleLogin = async (data) => {
     login({ email: data.email, password: data.password });
@@ -30,7 +31,7 @@ export default function Login() {
             </CardDescription>
           </CardHeader>
           <CardContent className="px-[50px]">
-            <LoginForm onSubmit={handleLogin} />
+            <LoginForm onSubmit={handleLogin} isLoading={isPending} />
           </CardContent>
           <CardFooter className="flex justify-center">
             <h1 className="text-center">
