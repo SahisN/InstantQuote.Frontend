@@ -19,7 +19,7 @@ export function useQuote() {
       toast.success("Quote submitted successfully");
       queryClient.invalidateQueries({ queryKey: [QueryKeys.QUOTE_HISTORY] });
       console.log(data);
-      navigate("/quote", {
+      navigate("/app/quote", {
         state: {
           nameInsured: data.nameInsured,
           companyAddress: data.companyAddress,

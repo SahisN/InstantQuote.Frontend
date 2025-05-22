@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
-export default function QuoteForm({ onSubmit }) {
+export default function QuoteForm({ onSubmit, isLoading }) {
   const form = useForm({
     resolver: zodResolver(looseQuoteFormSchema),
     defaultValues: {
@@ -36,7 +37,7 @@ export default function QuoteForm({ onSubmit }) {
               <FormItem>
                 <FormLabel>Insured Name</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-[300px]" />
+                  <Input disabled={isLoading} {...field} className="w-full" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -50,7 +51,7 @@ export default function QuoteForm({ onSubmit }) {
               <FormItem>
                 <FormLabel>Company Address</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-[300px]" />
+                  <Input disabled={isLoading} {...field} className="w-full" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -64,7 +65,12 @@ export default function QuoteForm({ onSubmit }) {
               <FormItem>
                 <FormLabel>Class Code</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-[300px]" type="number" />
+                  <Input
+                    disabled={isLoading}
+                    {...field}
+                    className="w-full"
+                    type="number"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -78,15 +84,27 @@ export default function QuoteForm({ onSubmit }) {
               <FormItem>
                 <FormLabel>Exposure Amount</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-[300px]" type="number" />
+                  <Input
+                    disabled={isLoading}
+                    {...field}
+                    className="w-full"
+                    type="number"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
         </div>
-        <Button className="w-full" type="submit">
-          Get a Quote
+        <Button disabled={isLoading} className="w-full" type="submit">
+          {isLoading ? (
+            <>
+              Submitting...
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            </>
+          ) : (
+            "Get a quote"
+          )}
         </Button>
       </form>
     </Form>
