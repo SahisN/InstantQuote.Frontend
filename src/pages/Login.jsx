@@ -1,6 +1,14 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardTitle,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardDescription,
+} from "@/components/ui/card";
 import LoginForm from "@/forms/loginform/LoginForm";
 import { useLogin } from "@/auth/useLogin";
+import { Header } from "@/widget/Header";
 
 export default function Login() {
   const { mutate: login } = useLogin();
@@ -9,11 +17,19 @@ export default function Login() {
     login({ email: data.email, password: data.password });
   };
   return (
-    <div className="flex justify-center items-center h-[90vh]">
-      <div className="max-w-screen-sm">
-        <Card className="w-full h-full max-w-[700px] max-h-[600px]">
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1 flex items-center justify-center py-12 px-4">
+        <Card className="h-full max-w-[700px] max-h-[600px]">
+          <CardHeader className="space-y-1 text-center">
+            <CardTitle className="text-2xl font-bold">
+              Sign in to InstantQuote
+            </CardTitle>
+            <CardDescription>
+              Enter your email and password to access your account
+            </CardDescription>
+          </CardHeader>
           <CardContent className="px-[50px]">
-            <h6 className="text-3xl text-center font-bold">Login Portal</h6>
             <LoginForm onSubmit={handleLogin} />
           </CardContent>
           <CardFooter className="flex justify-center">
@@ -25,7 +41,7 @@ export default function Login() {
             </h1>
           </CardFooter>
         </Card>
-      </div>
+      </main>
     </div>
   );
 }
