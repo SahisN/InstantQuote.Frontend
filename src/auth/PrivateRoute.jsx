@@ -1,10 +1,23 @@
 import { useUser } from "@/auth/useUser";
 import Loader from "@/widget/Loader";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const PrivateRoute = () => {
   const { data: user, isLoading } = useUser();
-  console.log(user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && !isLoading) {
+      console.log(user);
+      // Small delay to ensure state is updated
+      const timer = setTimeout(() => {
+        navigate("/app/dashboard", { replace: true });
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [user, isLoading, navigate]);
 
   if (isLoading) {
     return <Loader loadingMessage="Loading User Information...." />;
