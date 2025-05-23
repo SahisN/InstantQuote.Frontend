@@ -38,9 +38,6 @@ export async function getUser() {
   const response = await request({
     url: "/user",
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
     withCredentials: true,
   });
 
