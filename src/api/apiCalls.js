@@ -53,6 +53,7 @@ export async function Logout() {
 }
 
 export async function Quote({
+  createdAt,
   nameInsured,
   companyAddress,
   classCode,
@@ -62,6 +63,7 @@ export async function Quote({
     url: "/quote",
     method: "POST",
     data: {
+      createdAt: createdAt,
       nameInsured: nameInsured,
       companyAddress: companyAddress,
       classCode: classCode,

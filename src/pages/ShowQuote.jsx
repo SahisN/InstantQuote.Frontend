@@ -18,8 +18,14 @@ export default function ShowQuote({}) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { nameInsured, companyAddress, classCode, exposureAmount, quote } =
-    location.state || {};
+  const {
+    createdAt,
+    nameInsured,
+    companyAddress,
+    classCode,
+    exposureAmount,
+    premium,
+  } = location.state || {};
 
   useEffect(() => {
     if (!location.state) {
@@ -48,6 +54,9 @@ export default function ShowQuote({}) {
               Based on the information provided, we've calculated your insurance
               premium.
             </CardDescription>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Generated on: {createdAt}
+            </p>
           </CardHeader>
           <CardContent className="pt-6">
             <div className="space-y-6">
@@ -96,7 +105,7 @@ export default function ShowQuote({}) {
                     <span className="text-md text-muted-foreground">
                       Exposure Amount:
                     </span>
-                    <span className="col-span-2">${exposureAmount}</span>
+                    <span className="col-span-2">{exposureAmount}</span>
                   </div>
                 </div>
               </div>
@@ -113,7 +122,7 @@ export default function ShowQuote({}) {
                     <span className="text-md text-muted-foreground">
                       Calculated Premium:
                     </span>
-                    <span className="col-span-2">${quote}</span>
+                    <span className="col-span-2">{premium}</span>
                   </div>
                 </div>
               </div>

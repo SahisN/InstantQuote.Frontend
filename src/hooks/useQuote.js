@@ -21,11 +21,12 @@ export function useQuote() {
       console.log(data);
       navigate("/app/quote", {
         state: {
+          createdAt: data.createdAt,
           nameInsured: data.nameInsured,
           companyAddress: data.companyAddress,
           classCode: data.classCode,
           exposureAmount: data.exposureAmount,
-          quote: data.calculatePremium,
+          premium: data.premium,
         },
       });
     },

@@ -14,7 +14,6 @@ export default function Dashboard() {
   const { data: user } = useUser();
 
   const handleQuoteSubmit = (data) => {
-    console.log("Quote data:", data);
     quote({
       nameInsured: data.nameInsured,
       companyAddress: data.companyAddress,

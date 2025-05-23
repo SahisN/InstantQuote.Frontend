@@ -33,6 +33,7 @@ export default function QuoteHistory() {
                 <Table>
                   <TableHeader>
                     <TableRow>
+                      <TableHead>Created At</TableHead>
                       <TableHead>Name Insured</TableHead>
                       <TableHead>Company Address</TableHead>
                       <TableHead>Class Code</TableHead>
@@ -43,6 +44,9 @@ export default function QuoteHistory() {
                   <TableBody>
                     {quoteHistoryData.map((quoteData, index) => (
                       <TableRow key={index}>
+                        <TableCell className="text-left">
+                          {quoteData.createdAt}
+                        </TableCell>
                         <TableCell className="text-left">
                           {quoteData.nameInsured}
                         </TableCell>
@@ -56,7 +60,7 @@ export default function QuoteHistory() {
                           {quoteData.exposureAmount}
                         </TableCell>
                         <TableCell className="text-left">
-                          {quoteData.quote}
+                          {quoteData.premium}
                         </TableCell>
                       </TableRow>
                     ))}
