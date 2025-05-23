@@ -1,5 +1,7 @@
 # Live link
-App is live on: [https://instant-quote-frontend.vercel.app/]
+<p>App is live on: [https://instant-quote-frontend.vercel.app/] </p>
+<p> Recommend browser: Chrome or Firefox </p>
+<p>Note: App user cookies to authenticate and track user. Please enable cookies </p>
 
 # Challeges faced during
 <p> Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout <p>
@@ -31,6 +33,7 @@ Solution: I used v0.dev as a guideline along with other libraries like shadcn to
 - TanstackQuery
 - Tailwindcss
 - Vite
+- React JS
 
 # Getting Started
 
