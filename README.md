@@ -1,7 +1,7 @@
 # Live link
 <p>App is live on: [https://instant-quote-frontend.vercel.app/] </p>
 <p> Recommend browser: Chrome or Firefox </p>
-<p>Note: App user cookies to authenticate and track user. Please enable cookies </p>
+<p>Note: App user cookies to authenticate and track user. Please enable cookies if you blocked it</p>
 
 # Challeges faced during
 <p> Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout <p>
