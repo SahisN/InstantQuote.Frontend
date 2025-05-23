@@ -16,7 +16,7 @@ export function useUser() {
 
   useEffect(() => {
     if (query.isError) {
-      //toast.error(query.error.response.data.message);
+      toast.error(query.error.response?.data.message);
       navigate("/login");
     }
   }, [query.isError, query.error, navigate]);
