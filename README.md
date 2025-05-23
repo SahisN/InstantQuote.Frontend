@@ -2,10 +2,10 @@
 App is live on: [https://instant-quote-frontend.vercel.app/]
 
 # Challeges faced during
-Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout
-Solution: I watched videos on how different ways to authenticate users, and landed on cookie based authentication and learned how to hash password when saving it to database.
+<p> Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout <p>
+<p> Solution: I watched videos on how different ways to authenticate users, and landed on cookie based authentication and learned how to hash password when saving it to database. <p>
 
-Challenge 2: I wanted to add auto suggestion feature to class code on quote form when user inputs class code or description.
+<p> Challenge 2: I wanted to add auto suggestion feature to class code on quote form when user inputs class code or description. </p>
 Solution: I used v0.dev as a guideline along with other libraries like shadcn to implement the feature
 
 Challenge 3: I wanted to implement a class code lookup page where it shows all the available class code and user can filter through in search.
