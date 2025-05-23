@@ -2,6 +2,8 @@ import { Logout } from "@/api/apiCalls";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { QueryClient } from "@tanstack/react-query";
+import { queryClient } from "@/config/queryClient";
 
 export function useLogout() {
   const navigate = useNavigate();
@@ -11,8 +13,9 @@ export function useLogout() {
     onSuccess: () => {
       setTimeout(() => {
         toast.success("Logout successful");
+        queryClient.clear();
         navigate("/login");
-      }, 0);
+      });
     },
 
     onError: (error) => {
