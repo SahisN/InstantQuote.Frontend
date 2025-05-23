@@ -1,3 +1,6 @@
+# Live link
+App is live on: [https://instant-quote-frontend.vercel.app/]
+
 # Challeges faced during
 Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout
 Solution: I watched videos on how different ways to authenticate users, and landed on cookie based authentication and learned how to hash password when saving it to database.
