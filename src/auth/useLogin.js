@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
+// used for authenticating user
 export function useLogin() {
   const navigate = useNavigate();
   return useMutation({

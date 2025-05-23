@@ -20,6 +20,8 @@ const tableHeaders = [
 export default function ClassCodeLookup() {
   const [search, setSearch] = useState("");
   const [tableData, setTableData] = useState(data);
+
+  // Filters the table data based on the user's search input.
   const filterData = () => {
     if (search == "") {
       setTableData(data);
@@ -76,6 +78,7 @@ export default function ClassCodeLookup() {
             </div>
           </CardContent>
         </Card>
+        {/** if filtered data is less than 0, show no data avaliable text */}
         {tableData.length > 0 ? (
           <div className="py-[30px]">
             <DataTable tableHeaders={tableHeaders} quoteData={tableData} />

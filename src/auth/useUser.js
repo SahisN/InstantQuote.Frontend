@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { QueryKeys } from "@/config/queryKeys";
 import { useEffect } from "react";
 
+// used to check if user is authenticated
 export function useUser() {
   const navigate = useNavigate();
 

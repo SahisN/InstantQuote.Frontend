@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
+// sends user information to create user, then redirects to login
 export function useSignup() {
   const navigate = useNavigate();
 
