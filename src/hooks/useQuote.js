@@ -18,7 +18,7 @@ export function useQuote() {
     onSuccess: (data) => {
       toast.success("Quote submitted successfully");
       queryClient.invalidateQueries({ queryKey: [QueryKeys.QUOTE_HISTORY] });
-      console.log(data);
+
       navigate("/app/quote", {
         state: {
           createdAt: data.createdAt,
