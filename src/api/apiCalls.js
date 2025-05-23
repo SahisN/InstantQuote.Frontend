@@ -82,9 +82,6 @@ export async function quoteHistory() {
     url: "/quotes",
     method: "GET",
     withCredentials: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
   });
 
   return response;
