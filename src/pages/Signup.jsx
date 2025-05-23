@@ -39,7 +39,7 @@ export default function Signup() {
           <CardFooter className="flex justify-center">
             <h1 className="text-center">
               Already have an account?{" "}
-              <a href="/signup" className="underline">
+              <a href="/login" className="underline">
                 Sign in
               </a>
             </h1>

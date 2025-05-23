@@ -9,6 +9,7 @@ export async function login({ email, password }) {
       email: email,
       password: password,
     },
+
     withCredentials: true,
   });
 
@@ -26,6 +27,7 @@ export async function signup({ username, email, password }) {
       email: email,
       password: password,
     },
+
     withCredentials: true,
   });
 
@@ -36,6 +38,9 @@ export async function getUser() {
   const response = await request({
     url: "/user",
     method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
     withCredentials: true,
   });
 
@@ -80,6 +85,9 @@ export async function quoteHistory() {
     url: "/quotes",
     method: "GET",
     withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 
   return response;
