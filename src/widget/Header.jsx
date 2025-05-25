@@ -53,27 +53,6 @@ export function Header() {
       {isMenuOpen && (
         <div className="md:hidden w-full px-4">
           <nav className="flex flex-col gap-4 p-4">
-            <Link
-              to="#"
-              className="text-sm font-medium hover:underline underline-offset-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Quote History
-            </Link>
-            <Link
-              to="#"
-              className="text-sm font-medium hover:underline underline-offset-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              to="#"
-              className="text-sm font-medium hover:underline underline-offset-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
             <div className="flex gap-4 mt-2">
               <Link to="/login" onClick={() => setIsMenuOpen(false)}>
                 <Button variant="outline" className="w-full">

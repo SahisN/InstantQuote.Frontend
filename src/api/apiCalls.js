@@ -86,3 +86,37 @@ export async function quoteHistory() {
 
   return response;
 }
+
+export async function quoteDetails(quoteId) {
+  const response = await request({
+    url: `/get-quote/${quoteId}`,
+    method: "GET",
+    withCredentials: true,
+  });
+
+  console.log(response);
+
+  return response;
+}
+
+export async function updateQuote({
+  quoteId,
+  nameInsured,
+  companyAddress,
+  classCode,
+  exposureAmount,
+}) {
+  const response = await request({
+    url: `edit-quotes/${quoteId}`,
+    method: "PUT",
+    data: {
+      nameInsured: nameInsured,
+      companyAddress: companyAddress,
+      classCode: classCode,
+      exposureAmount: exposureAmount,
+    },
+    withCredentials: true,
+  });
+
+  return response;
+}

@@ -5,8 +5,9 @@ import LandingPage from "@/pages/LandingPage";
 import Layout from "@/pages/Layout";
 import Login from "@/pages/Login";
 import QuoteHistory from "@/pages/QuoteHistory";
-import ShowQuote from "@/pages/ShowQuote";
+import ShowQuote from "@/pages/sub_pages/ShowQuote";
 import Signup from "@/pages/Signup";
+import QuoteDetails from "@/pages/sub_pages/QuoteDetails";
 
 export const routerConfig = [
   {
@@ -45,6 +46,15 @@ export const routerConfig = [
         element: (
           <Layout>
             <ShowQuote />
+          </Layout>
+        ),
+      },
+
+      {
+        path: "quote-details/:id",
+        element: (
+          <Layout>
+            <QuoteDetails />
           </Layout>
         ),
       },
