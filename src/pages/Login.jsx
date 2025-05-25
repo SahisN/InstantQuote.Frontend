@@ -11,7 +11,7 @@ import { useLogin } from "@/auth/useLogin";
 import { Header } from "@/widget/Header";
 
 export default function Login() {
-  const { mutate: login, isPending } = useLogin({});
+  const { mutate: login, isPending } = useLogin();
 
   const handleLogin = async (data) => {
     login({ email: data.email, password: data.password });

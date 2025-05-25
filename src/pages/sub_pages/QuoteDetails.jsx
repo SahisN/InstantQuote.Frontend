@@ -8,20 +8,28 @@ import {
 } from "@/components/ui/card";
 import QuoteForm from "@/forms/quoteForm/QuoteForm";
 import { getQuote } from "@/hooks/getQuote";
+import { useUpdateQuote } from "@/hooks/useUpdateQuote";
 import ShowInsuranceDetails from "@/widget/ShowInsuranceDetails";
 import { LucideEdit, X, CheckCircle, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function QuoteDetails() {
-  const [isEditable, setEditable] = useState(false);
   const { id } = useParams();
   const { data: quoteData, isLoading } = getQuote(id);
+  const { mutate: updateQuote, isPending } = useUpdateQuote(id);
+  const [isEditable, setEditable] = useState(false);
   const navigate = useNavigate();
-  console.log(quoteData);
 
   const handleEdit = (data) => {
     console.log(data);
+    updateQuote({
+      nameInsured: data.nameInsured,
+      companyAddress: data.companyAddress,
+      classCode: data.classCode,
+      exposureAmount: data.exposureAmount,
+    });
+    setEditable(false);
   };
 
   return (
@@ -86,12 +94,16 @@ export default function QuoteDetails() {
                     <QuoteForm
                       editMode={true}
                       onSubmit={handleEdit}
+                      isLoading={isPending}
                       defaultFormData={{
-                        nameInsured: "Liquor Store",
-                        companyAddress: "S Pasadena Ave",
-                        classCode: "10101",
-                        exposureAmount: "10000",
-                        premium: "3450",
+                        nameInsured: quoteData.nameInsured,
+                        companyAddress: quoteData.companyAddress,
+                        classCode: quoteData.classCode,
+                        exposureAmount: quoteData.exposureAmount.replace(
+                          /[^0-9.-]+/g,
+                          ""
+                        ),
+                        premium: quoteData.premium,
                       }}
                     />
                   )}
