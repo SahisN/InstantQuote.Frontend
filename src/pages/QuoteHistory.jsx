@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import getQuoteHistory from "@/hooks/getQuoteHistory";
+import StatusBadge from "@/widget/StatusBadge";
 
 export default function QuoteHistory() {
   const { data: quoteHistoryData, isLoading } = getQuoteHistory();
@@ -28,12 +29,13 @@ export default function QuoteHistory() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Created At</TableHead>
+                      <TableHead>Last Updated</TableHead>
                       <TableHead>Name Insured</TableHead>
                       <TableHead>Company Address</TableHead>
                       <TableHead>Class Code</TableHead>
                       <TableHead>Exposure Amount</TableHead>
                       <TableHead>Premium</TableHead>
+                      <TableHead>Status</TableHead>
                       <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -41,7 +43,7 @@ export default function QuoteHistory() {
                     {quoteHistoryData.map((quoteData, index) => (
                       <TableRow key={index}>
                         <TableCell className="text-left">
-                          {quoteData.createdAt}
+                          {quoteData.lastUpdated}
                         </TableCell>
                         <TableCell className="text-left">
                           {quoteData.nameInsured}
@@ -57,6 +59,9 @@ export default function QuoteHistory() {
                         </TableCell>
                         <TableCell className="text-left">
                           {quoteData.premium}
+                        </TableCell>
+                        <TableCell className="text-left">
+                          <StatusBadge status={quoteData.status} />
                         </TableCell>
                         <TableCell className="text-left">
                           <Button

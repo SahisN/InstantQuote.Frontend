@@ -9,7 +9,9 @@ import {
 import QuoteForm from "@/forms/quoteForm/QuoteForm";
 import { getQuote } from "@/hooks/getQuote";
 import { useUpdateQuote } from "@/hooks/useUpdateQuote";
+import { useUpdateStatus } from "@/hooks/useUpdateStatus";
 import ShowInsuranceDetails from "@/widget/ShowInsuranceDetails";
+import StatusBadge from "@/widget/StatusBadge";
 import { LucideEdit, X, CheckCircle, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -18,6 +20,7 @@ export default function QuoteDetails() {
   const { id } = useParams();
   const { data: quoteData, isLoading } = getQuote(id);
   const { mutate: updateQuote, isPending } = useUpdateQuote(id);
+  const { mutate: updateStatus } = useUpdateStatus(id);
   const [isEditable, setEditable] = useState(false);
   const navigate = useNavigate();
 
@@ -30,6 +33,10 @@ export default function QuoteDetails() {
       exposureAmount: data.exposureAmount,
     });
     setEditable(false);
+  };
+
+  const handleStatusChange = (newStatus) => {
+    updateStatus(newStatus);
   };
 
   return (
@@ -110,14 +117,15 @@ export default function QuoteDetails() {
                 </CardContent>
                 <CardFooter className="bg-muted/50 flex justify-between py-[10px]">
                   <div className="text-sm font-medium">
-                    <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
+                    {/* <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
                       Ready for Binding
-                    </div>
+                    </div> */}
+                    {!isLoading && <StatusBadge status={quoteData.status} />}
                   </div>
 
                   <Button
                     disabled={isEditable}
-                    onClick={() => console.log("bind policy")}
+                    onClick={() => handleStatusChange("Bind")}
                   >
                     <CheckCircle className="mr-2 h-4 w-4" />
                     Bind Policy

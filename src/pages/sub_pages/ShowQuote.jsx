@@ -62,6 +62,7 @@ export default function ShowQuote({}) {
               companyAddress={companyAddress}
               exposureAmount={exposureAmount}
               premium={premium}
+              isLoading={false}
             />
           </CardContent>
           <CardFooter className="flex justify-between py-[15px]">

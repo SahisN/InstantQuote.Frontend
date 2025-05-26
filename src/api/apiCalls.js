@@ -54,7 +54,7 @@ export async function Logout() {
   return response;
 }
 
-export async function Quote({
+export async function createQuote({
   createdAt,
   nameInsured,
   companyAddress,
@@ -114,6 +114,19 @@ export async function updateQuote({
       companyAddress: companyAddress,
       classCode: classCode,
       exposureAmount: exposureAmount,
+    },
+    withCredentials: true,
+  });
+
+  return response;
+}
+
+export async function updateStatus({ id, status }) {
+  const response = await request({
+    url: `/update-status/${id}`,
+    method: "PATCH",
+    data: {
+      status: status,
     },
     withCredentials: true,
   });
