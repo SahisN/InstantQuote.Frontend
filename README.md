@@ -1,34 +1,40 @@
 # Live link
-<p>App is live on: [https://instant-quote-frontend.vercel.app/] </p>
+App is live on: [https://instant-quote-frontend.vercel.app/]
 
 
 # Challeges faced during
-<p> Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout <p>
-<p> Solution: I watched videos on how different ways to authenticate users, and landed on cookie based authentication and learned how to hash password when saving it to database. <p>
+Challenge 1: Create a secure system to authenticate users and remove the user when they logout. 
 
-<p> Challenge 2: I wanted to add auto suggestion feature to class code on quote form when user inputs class code or description. </p>
-Solution: I used v0.dev as a guideline along with other libraries like shadcn to implement the feature
+Solution: I watched videos on different ways to authenticate users, landed on cookie-based authentication, and learned how to hash passwords when saving them to the database. 
 
-<p> Challenge 3: I wanted to implement a class code lookup page where it shows all the available class code and user can filter through in search. </p>
-<p> Solution: I went to different sources to find class code and used python to scrape through the data and converted to json file. For Filtering system, I looked through youtube videos and chatgpt for guidance  </p>
+Challenge 2: I wanted to implement a class code lookup page that shows all the available class codes, and users can filter through them in search.
 
- <p>Challenge 4: I wanted a good backend service that had high availability  </p>
-<p>Solution: I upgrade render backend to $7 month because it had static outbound ip which allowed for easier whitelisting on my mongodb and offered high availability.  </p>
+Solution: I went to different sources to find class code and used Python to scrape through the data and convert it to a JSON file. I looked through YouTube videos and ChatGPT for guidance on the Filtering system.
 
-<p>Challenge 5: My backend was blocking my frontend for making request due to cors  </p>
-<p>Solution: I looked thru youtube and stack overflow to figure out how can I configure cors and whitelist the frontend. Alot of it was trail and error too.  </p>
+Challenge 3: I wanted a good backend service that had high availability.
 
-<p>Challenge 6: All the sessions created were being stored in memory but render only had limited memory  </p>
-<p>Solution: Implemented Session management to store the session created in external file instead of memory.  </p>
+Solution: I upgraded the render backend to $7 per month because it had static outbound IP, which allowed for easier whitelisting on my Mongodb and offered high availability. 
 
-<p>Challenge 7: Mongodb was blocking my backend server from accessing the database.  </p>
-<p>Solution: I did some research on why it was causing it, I found out that it was because there was no whitelisting done. I whitelisted all my static outbound ip from my backend to fix it.  </p>
+Challenge 4: My backend was blocking my frontend from requesting due to cors.
 
-<p>Challenge 8: I wanted to use the express json for my project but i was new.  </p>
-<p>Solution: I looked thru tutorials on how to use express json, made simple apis to gain knowledge, and used postman to check if my api's were working properly.  </p>
+Solution: I looked through YouTube and stack overflow to figure out how to configure Cors and whitelist the front end. A lot of it was trial and error, too. 
 
-<p> Challenge 9: Third party / Cross site cookies were blocked by some browsers like safari and most phone browser as secuirty
-<p> Solution: I did some debugging and research to figured out that third party cookies are blocked by most phone browsers and incognito browser. I used vercel preverse proxy tool to make the cookies be treated like first party cookies</p>
+Challenge 5: All the sessions created were being stored in memory, but render only had limited memory 
+
+Solution: Implemented Session management to store the session created in an external file instead of memory. 
+
+Challenge 6: Mongodb was blocking my backend server from accessing the database
+
+Solution: I researched why it was causing it and found out that it was because no whitelisting had been done. I whitelisted all my static outbound IPs from my backend to fix it
+
+Challenge 7: I wanted to use the ExpressJS for my project, but it was new to me. 
+
+Solution: I looked through tutorials on using express JSON, made simple APIs to gain knowledge, and used Postman to check if my APIs worked correctly.
+
+Challenge 8: Third-party / Cross-site cookies were blocked by some browsers like Safari and most phone browsers as security
+
+Solution: I did some debugging and research to determine that most phone and incognito browsers block third-party cookies. I used a Vercel reverse proxy tool to treat the cookies like first-party cookies. By reverse proxy, I made it so all the API requests that the front end received were from the same domain as the front end itself, which changed it from third-party cookies to first-party.
+
 
 # Technology used
 
