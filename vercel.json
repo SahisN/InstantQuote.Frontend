@@ -4,6 +4,9 @@
       "source": "/api/:path*",
       "destination": "https://instantquote-backend.onrender.com/:path*"
     },
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
