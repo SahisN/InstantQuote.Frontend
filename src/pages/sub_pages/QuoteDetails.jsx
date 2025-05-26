@@ -51,7 +51,7 @@ export default function QuoteDetails() {
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
-            <h1 className="text-3xl font-bold">Quote Details</h1>
+            <h1 className="text-3xl font-bold">Go Back To Quote History</h1>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="md:col-span-2">
@@ -108,7 +108,7 @@ export default function QuoteDetails() {
                         classCode: quoteData.classCode,
                         exposureAmount: quoteData.exposureAmount.replace(
                           /[^0-9.-]+/g,
-                          "",
+                          ""
                         ),
                         premium: quoteData.premium,
                       }}
