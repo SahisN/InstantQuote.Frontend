@@ -39,7 +39,7 @@ export default function UpdatePolicyButton({
             onClick={() => handleStatusChange("Issued")}
           >
             <ArrowRightCircle className="mr-2 h-4 w-4" />
-            Re-Issue Policy
+            Reinstate Policy
           </Button>
         );
 
@@ -56,6 +56,8 @@ export default function UpdatePolicyButton({
         );
     }
   };
-
+  {
+    /** Returns apprioriate button for the quote status*/
+  }
   return getPolicyButton(status);
 }

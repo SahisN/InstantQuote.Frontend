@@ -87,6 +87,7 @@ export default function QuoteDetails() {
                   </div>
                 </CardHeader>
                 <CardContent className="py-6">
+                  {/** Show Insurance Details if not in edit mode or after the quote query has finished */}
                   {!isEditable && !isLoading && (
                     <ShowInsuranceDetails
                       nameInsured={quoteData.nameInsured}
@@ -96,7 +97,7 @@ export default function QuoteDetails() {
                       premium={quoteData.premium}
                     />
                   )}
-
+                  {/** Show Quote Form if in edit mode */}
                   {isEditable && (
                     <QuoteForm
                       editMode={true}
@@ -116,13 +117,12 @@ export default function QuoteDetails() {
                   )}
                 </CardContent>
                 <CardFooter className="bg-muted/50 flex justify-between py-[10px]">
+                  {/** Show the different Text, Color status badge depending on the status */}
                   <div className="text-sm font-medium">
-                    {/* <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
-                      Ready for Binding
-                    </div> */}
                     {!isLoading && <StatusBadge status={quoteData.status} />}
                   </div>
 
+                  {/** Changes Buttons Text, Color and Function depending on the status of the quote */}
                   {!isLoading && (
                     <UpdatePolicyButton
                       isEditable={isEditable}

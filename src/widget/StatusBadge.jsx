@@ -34,5 +34,8 @@ export default function StatusBadge({ status }) {
     }
   };
 
+  {
+    /** Returns the appropriate badge for the quote status */
+  }
   return getStatusBadge(status);
 }
