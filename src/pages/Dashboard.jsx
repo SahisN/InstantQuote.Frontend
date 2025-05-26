@@ -23,7 +23,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen rounded-lg shadow-lg">
+    <div className="flex justify-center items-center w-screen h-screen">
       <div className="w-full max-w-3xl h-full">
         <div>
           <h1 className="text-3xl font-bold mb-2 text-blue-700 tracking-tight">
