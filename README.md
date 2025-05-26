@@ -1,7 +1,6 @@
 # Live link
 <p>App is live on: [https://instant-quote-frontend.vercel.app/] </p>
-<p> Recommend browser: Chrome or Firefox </p>
-<p>Note: App user cookies to authenticate and track user. Please enable cookies if you blocked it</p>
+
 
 # Challeges faced during
 <p> Challenge 1: Finding a secure way to authenticate user and remove the user when they login and logout <p>
@@ -27,6 +26,9 @@ Solution: I used v0.dev as a guideline along with other libraries like shadcn to
 
 <p>Challenge 8: I wanted to use the express json for my project but i was new.  </p>
 <p>Solution: I looked thru tutorials on how to use express json, made simple apis to gain knowledge, and used postman to check if my api's were working properly.  </p>
+
+<p> Challenge 9: Third party / Cross site cookies were blocked by some browsers like safari and most phone browser as secuirty
+<p> Solution: I did some debugging and research to figured out that third party cookies are blocked by most phone browsers and incognito browser. I used vercel preverse proxy tool to make the cookies be treated like first party cookies</p>
 
 # Technology used
 
