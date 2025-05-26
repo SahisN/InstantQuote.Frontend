@@ -13,10 +13,10 @@ export default function StatusBadge({ status }) {
             Bind
           </span>
         );
-      case "Issue":
+      case "Issued":
         return (
           <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
-            Issue
+            Issued
           </span>
         );
       case "Cancelled":

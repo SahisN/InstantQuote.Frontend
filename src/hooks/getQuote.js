@@ -13,7 +13,6 @@ export function getQuote(quoteId) {
   });
 
   if (query.isError) {
-    console.log(query.error);
     navigate("/app/history");
   }
 

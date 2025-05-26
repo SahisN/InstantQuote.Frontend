@@ -12,7 +12,8 @@ import { useUpdateQuote } from "@/hooks/useUpdateQuote";
 import { useUpdateStatus } from "@/hooks/useUpdateStatus";
 import ShowInsuranceDetails from "@/widget/ShowInsuranceDetails";
 import StatusBadge from "@/widget/StatusBadge";
-import { LucideEdit, X, CheckCircle, ArrowLeft } from "lucide-react";
+import UpdatePolicyButton from "@/widget/UpdatePolicyButton";
+import { LucideEdit, X, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -25,7 +26,6 @@ export default function QuoteDetails() {
   const navigate = useNavigate();
 
   const handleEdit = (data) => {
-    console.log(data);
     updateQuote({
       nameInsured: data.nameInsured,
       companyAddress: data.companyAddress,
@@ -123,13 +123,13 @@ export default function QuoteDetails() {
                     {!isLoading && <StatusBadge status={quoteData.status} />}
                   </div>
 
-                  <Button
-                    disabled={isEditable}
-                    onClick={() => handleStatusChange("Bind")}
-                  >
-                    <CheckCircle className="mr-2 h-4 w-4" />
-                    Bind Policy
-                  </Button>
+                  {!isLoading && (
+                    <UpdatePolicyButton
+                      isEditable={isEditable}
+                      handleStatusChange={handleStatusChange}
+                      status={quoteData.status}
+                    />
+                  )}
                 </CardFooter>
               </Card>
             </div>

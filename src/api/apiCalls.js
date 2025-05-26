@@ -13,8 +13,6 @@ export async function login({ email, password }) {
     withCredentials: true,
   });
 
-  console.log(response);
-
   return response;
 }
 
@@ -94,8 +92,6 @@ export async function quoteDetails(quoteId) {
     withCredentials: true,
   });
 
-  console.log(response);
-
   return response;
 }
 
@@ -121,9 +117,9 @@ export async function updateQuote({
   return response;
 }
 
-export async function updateStatus({ id, status }) {
+export async function updateStatus({ quoteId, status }) {
   const response = await request({
-    url: `/update-status/${id}`,
+    url: `/update-status/${quoteId}`,
     method: "PATCH",
     data: {
       status: status,
