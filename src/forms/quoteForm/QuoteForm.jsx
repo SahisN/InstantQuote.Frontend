@@ -52,7 +52,7 @@ export default function QuoteForm({
     const filtered = classCodes.filter(
       (item) =>
         item.code.toString().startsWith(value) ||
-        item.description.toLowerCase().includes(value.toLowerCase())
+        item.description.toLowerCase().includes(value.toLowerCase()),
     );
 
     setClassCodeSuggestions(filtered.slice(0, 10));
@@ -74,7 +74,7 @@ export default function QuoteForm({
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setSelectedSuggestionIndex((prev) =>
-        prev < classCodeSuggestions.length - 1 ? prev + 1 : prev
+        prev < classCodeSuggestions.length - 1 ? prev + 1 : prev,
       );
     }
     // Arrow up
@@ -239,7 +239,7 @@ export default function QuoteForm({
                               "flex flex-col px-3 py-2 text-sm rounded-md cursor-pointer",
                               selectedSuggestionIndex === index
                                 ? "bg-primary/10"
-                                : "hover:bg-muted"
+                                : "hover:bg-muted",
                             )}
                             onClick={() => selectClassCode(item.code)}
                           >

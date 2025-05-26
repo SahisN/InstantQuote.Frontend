@@ -1,4 +1,5 @@
 # Technology used
+
 - Shadcn
 - TanstackQuery
 - Tailwindcss

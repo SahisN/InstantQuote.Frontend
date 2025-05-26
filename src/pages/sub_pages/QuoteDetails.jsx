@@ -108,7 +108,7 @@ export default function QuoteDetails() {
                         classCode: quoteData.classCode,
                         exposureAmount: quoteData.exposureAmount.replace(
                           /[^0-9.-]+/g,
-                          ""
+                          "",
                         ),
                         premium: quoteData.premium,
                       }}
