@@ -11,12 +11,17 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Loader2, X, ChevronDown, ChevronUp, Save } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import classCodes from "@/static/gl_code";
 
-export default function QuoteForm({ onSubmit, isLoading }) {
+export default function QuoteForm({
+  onSubmit,
+  isLoading,
+  editMode,
+  defaultFormData,
+}) {
   const [showClassCodeDropdown, setShowClassCodeDropdown] = useState(false);
   const [classCodeSuggestions, setClassCodeSuggestions] = useState([]);
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
@@ -25,12 +30,14 @@ export default function QuoteForm({ onSubmit, isLoading }) {
 
   const form = useForm({
     resolver: zodResolver(looseQuoteFormSchema),
-    defaultValues: {
-      nameInsured: "",
-      companyAddress: "",
-      classCode: "",
-      exposureAmount: "",
-    },
+    defaultValues: defaultFormData
+      ? defaultFormData
+      : {
+          nameInsured: "",
+          companyAddress: "",
+          classCode: "",
+          exposureAmount: "",
+        },
   });
 
   const handleClassCodeChange = (value) => {
@@ -270,16 +277,31 @@ export default function QuoteForm({ onSubmit, isLoading }) {
             )}
           />
         </div>
-        <Button disabled={isLoading} className="w-full" type="submit">
-          {isLoading ? (
-            <>
-              Submitting...
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            </>
-          ) : (
-            "Get a quote"
-          )}
-        </Button>
+        {!editMode && (
+          <Button disabled={isLoading} className="w-full" type="submit">
+            {isLoading ? (
+              <>
+                Submitting...
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              </>
+            ) : (
+              "Get a quote"
+            )}
+          </Button>
+        )}
+
+        {editMode && (
+          <Button disabled={isLoading} className="w-full" type="submit">
+            {isLoading ? (
+              <>
+                Saving...
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              </>
+            ) : (
+              "Save Changes"
+            )}
+          </Button>
+        )}
       </form>
     </Form>
   );

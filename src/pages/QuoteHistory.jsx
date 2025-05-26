@@ -1,4 +1,3 @@
-import useQuoteHistory from "@/hooks/useQuoteHistory";
 import Loader from "@/widget/Loader";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -9,17 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-const tableHeaders = [
-  "Insured Name",
-  "Company's Address",
-  "Class Code",
-  "Exposure Amount",
-  "Calculate Premium",
-];
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import getQuoteHistory from "@/hooks/getQuoteHistory";
+import StatusBadge from "@/widget/StatusBadge";
 
 export default function QuoteHistory() {
-  const { data: quoteHistoryData, isLoading } = useQuoteHistory();
+  const { data: quoteHistoryData, isLoading } = getQuoteHistory();
+  const navigate = useNavigate();
 
   return (
     <div className="flex justify-center items-center w-screen h-screen">
@@ -33,19 +29,21 @@ export default function QuoteHistory() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Created At</TableHead>
+                      <TableHead>Last Updated</TableHead>
                       <TableHead>Name Insured</TableHead>
                       <TableHead>Company Address</TableHead>
                       <TableHead>Class Code</TableHead>
                       <TableHead>Exposure Amount</TableHead>
                       <TableHead>Premium</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {quoteHistoryData.map((quoteData, index) => (
                       <TableRow key={index}>
                         <TableCell className="text-left">
-                          {quoteData.createdAt}
+                          {quoteData.lastUpdated}
                         </TableCell>
                         <TableCell className="text-left">
                           {quoteData.nameInsured}
@@ -61,6 +59,18 @@ export default function QuoteHistory() {
                         </TableCell>
                         <TableCell className="text-left">
                           {quoteData.premium}
+                        </TableCell>
+                        <TableCell className="text-left">
+                          <StatusBadge status={quoteData.status} />
+                        </TableCell>
+                        <TableCell className="text-left">
+                          <Button
+                            onClick={() =>
+                              navigate(`/app/quote-details/${quoteData._id}`)
+                            }
+                          >
+                            View Details
+                          </Button>
                         </TableCell>
                       </TableRow>
                     ))}

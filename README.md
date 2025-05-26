@@ -29,6 +29,7 @@ Solution: I used v0.dev as a guideline along with other libraries like shadcn to
 <p>Solution: I looked thru tutorials on how to use express json, made simple apis to gain knowledge, and used postman to check if my api's were working properly.  </p>
 
 # Technology used
+
 - Shadcn
 - TanstackQuery
 - Tailwindcss

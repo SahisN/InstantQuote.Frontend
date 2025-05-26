@@ -48,7 +48,11 @@ export default function Dashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <QuoteForm onSubmit={handleQuoteSubmit} isLoading={isPending} />
+              <QuoteForm
+                onSubmit={handleQuoteSubmit}
+                isLoading={isPending}
+                editMode={false}
+              />
             </CardContent>
           </Card>
         </div>

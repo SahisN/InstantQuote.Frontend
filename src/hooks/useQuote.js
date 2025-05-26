@@ -1,4 +1,4 @@
-import { Quote } from "@/api/apiCalls";
+import { createQuote } from "@/api/apiCalls";
 import { QueryKeys } from "@/config/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -9,7 +9,7 @@ export function useQuote() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ nameInsured, companyAddress, classCode, exposureAmount }) =>
-      Quote({
+      createQuote({
         nameInsured,
         companyAddress,
         classCode,

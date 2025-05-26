@@ -13,8 +13,6 @@ export async function login({ email, password }) {
     withCredentials: true,
   });
 
-  console.log(response);
-
   return response;
 }
 
@@ -54,7 +52,7 @@ export async function Logout() {
   return response;
 }
 
-export async function Quote({
+export async function createQuote({
   createdAt,
   nameInsured,
   companyAddress,
@@ -81,6 +79,51 @@ export async function quoteHistory() {
   const response = await request({
     url: "/quotes",
     method: "GET",
+    withCredentials: true,
+  });
+
+  return response;
+}
+
+export async function quoteDetails(quoteId) {
+  const response = await request({
+    url: `/get-quote/${quoteId}`,
+    method: "GET",
+    withCredentials: true,
+  });
+
+  return response;
+}
+
+export async function updateQuote({
+  quoteId,
+  nameInsured,
+  companyAddress,
+  classCode,
+  exposureAmount,
+}) {
+  const response = await request({
+    url: `edit-quotes/${quoteId}`,
+    method: "PUT",
+    data: {
+      nameInsured: nameInsured,
+      companyAddress: companyAddress,
+      classCode: classCode,
+      exposureAmount: exposureAmount,
+    },
+    withCredentials: true,
+  });
+
+  return response;
+}
+
+export async function updateStatus({ quoteId, status }) {
+  const response = await request({
+    url: `/update-status/${quoteId}`,
+    method: "PATCH",
+    data: {
+      status: status,
+    },
     withCredentials: true,
   });
 

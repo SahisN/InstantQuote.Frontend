@@ -11,7 +11,6 @@ export function useSignup() {
     mutationFn: ({ username, email, password }) =>
       signup({ username, email, password }),
     onSuccess: (data) => {
-      console.log("Signup response:", data);
       toast.success("Signup successful");
       navigate("/login");
     },
