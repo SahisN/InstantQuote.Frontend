@@ -8,6 +8,7 @@ import QuoteHistory from "@/pages/QuoteHistory";
 import ShowQuote from "@/pages/sub_pages/ShowQuote";
 import Signup from "@/pages/Signup";
 import QuoteDetails from "@/pages/sub_pages/QuoteDetails";
+import PageNotFound from "@/pages/PageNotFound";
 
 export const routerConfig = [
   {
@@ -72,4 +73,9 @@ export const routerConfig = [
   },
 
   { path: "/signup", element: <Signup /> },
+
+  {
+    path: "*",
+    element: <PageNotFound />,
+  },
 ];
