@@ -1,7 +1,7 @@
 import { updateStatus } from "@/api/apiCalls";
 import { queryClient } from "@/config/queryClient";
 import { QueryKeys } from "@/config/queryKeys";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 

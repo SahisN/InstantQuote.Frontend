@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { HistoryIcon, LucideArrowBigLeft, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import data from "@/static/gl_code";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import {
