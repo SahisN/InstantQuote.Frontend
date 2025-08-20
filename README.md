@@ -30,7 +30,7 @@
 ---
 
 ## 📸 Demo
-
+Full video: https://youtu.be/M8mTlUCRnEg?si=kd65gFGzuq-ojl8u
 [![Watch the video](https://img.youtube.com/vi/M8mTlUCRnEg/0.jpg)](https://www.youtube.com/watch?v=M8mTlUCRnEg)
 
 ---
